@@ -2,7 +2,7 @@ package com.testpkg;
 
 import java.io.File;
 import java.io.FileInputStream;
-
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -25,8 +25,18 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  * 
  */
 public class TempoAuto {
+	
+	public static void main(String[] args) throws InterruptedException, IOException {
+	//	tempoAuto("27th June","27/Jun/2022");
+		tempoAuto("28th June","28/Jun/2022");
+//		tempoAuto("","");
+//		tempoAuto("","");
+	}
+	
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	
+	
+	public static void tempoAuto(String sheetname, String datee) throws InterruptedException, IOException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -36,10 +46,10 @@ public class TempoAuto {
 		driver.findElement(By.id("login-form-submit")).click();
 		Thread.sleep(2000);
 		String resourceName="Naresh";
-		File file = new File("C:\\Users\\nbusireddy\\eclipse-workspace\\Challenges\\DataProvider\\May-2022.xlsx");
+		File file = new File("C:\\Users\\nbusireddy\\git\\Challenges\\Challenges\\DataProvider\\June-2022.xlsx");
 		FileInputStream fis= new FileInputStream(file);
 		XSSFWorkbook workBook = new XSSFWorkbook(fis);
-		XSSFSheet sheet = workBook.getSheet("31st May 2022");
+		XSSFSheet sheet = workBook.getSheet(sheetname);
 		XSSFRow row = null;
 		DataFormatter formatter = new DataFormatter();
 		int rowcount = sheet.getPhysicalNumberOfRows();
@@ -73,7 +83,7 @@ public class TempoAuto {
 					datess.click();
 					datess.sendKeys(Keys.CONTROL + "a");
 					datess.sendKeys(Keys.DELETE);		
-					datess.sendKeys("31/May/2022");
+					datess.sendKeys(datee);
 					Thread.sleep(1000);
 					WebElement timeToSpend =driver.findElement(By.name("timeSpentSeconds"));
 					timeToSpend.click();
@@ -114,5 +124,6 @@ public class TempoAuto {
 		}
 
 		workBook.close();
+		driver.quit();
 	}
 }
