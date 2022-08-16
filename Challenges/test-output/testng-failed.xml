@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testpkg.LambdaTest">
+      <class name="com.practice.TempoAuto">
         <methods>
-          <include name="basicTest"/>
           <include name="setup"/>
+          <include name="method1"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.testpkg.LambdaTest -->
+      </class> <!-- com.practice.TempoAuto -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

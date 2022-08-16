@@ -1,4 +1,4 @@
-package com.testpkg;
+package com.tempo;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,20 +22,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * @Naresh Reddy
  * using to read the data from Excel
- * 
+
  */
 public class TempoAuto {
-	
-	public static void main(String[] args) throws InterruptedException, IOException {
-	//	tempoAuto("27th June","27/Jun/2022");
-		tempoAuto("28th June","28/Jun/2022");
-//		tempoAuto("","");
-//		tempoAuto("","");
-	}
-	
 
-	
-	
+	public static void main(String[] args) throws InterruptedException, IOException {
+		//tempoAuto("6th July 2022","06/Jul/2022");
+		 // tempoAuto("11th July 2022","11/Jul/2022");
+	      tempoAuto("21st July 2022","21/Jul/2022");
+		//		tempoAuto("","");
+	}	
+
 	public static void tempoAuto(String sheetname, String datee) throws InterruptedException, IOException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
@@ -46,11 +43,10 @@ public class TempoAuto {
 		driver.findElement(By.id("login-form-submit")).click();
 		Thread.sleep(2000);
 		String resourceName="Naresh";
-		File file = new File("C:\\Users\\nbusireddy\\git\\Challenges\\Challenges\\DataProvider\\June-2022.xlsx");
+		File file = new File("C:\\Users\\nbusireddy\\git\\Challenges\\Challenges\\DataProvider\\July-2022.xlsx");
 		FileInputStream fis= new FileInputStream(file);
 		XSSFWorkbook workBook = new XSSFWorkbook(fis);
 		XSSFSheet sheet = workBook.getSheet(sheetname);
-		XSSFRow row = null;
 		DataFormatter formatter = new DataFormatter();
 		int rowcount = sheet.getPhysicalNumberOfRows();
 		System.out.println(rowcount);
@@ -58,8 +54,6 @@ public class TempoAuto {
 		System.out.println(columncount);
 		for (int i = 1; i <=rowcount; i++) {
 			for (int j = 0; j <=columncount; j++) {
-
-
 				String values= formatter.formatCellValue(sheet.getRow(i).getCell(j));
 				if(resourceName.equals(values)){
 					String clientId = formatter.formatCellValue(sheet.getRow(i).getCell(2));

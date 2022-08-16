@@ -1,19 +1,15 @@
-package com.testpkg;
+package com.tempo;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
 import javax.imageio.ImageIO;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -27,12 +23,12 @@ public class TelanaganaRegistarion {
 	
 	public static void main(String[] args) throws InterruptedException, IOException {
 		WebDriverManager.chromedriver().setup();
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("headless");
-		WebDriver driver = new ChromeDriver(options);
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("headless");
+		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-		//driver.manage().deleteAllCookies();
+		driver.manage().deleteAllCookies();
 		driver.get("https://registration.telangana.gov.in");
 		Thread.sleep(3000);
 		String parentwindoww=driver.getWindowHandle();
@@ -62,19 +58,16 @@ public class TelanaganaRegistarion {
 			Thread.sleep(3000);
 			driver.findElement(By.xpath("//button[text()='Submit']")).click();
 			Thread.sleep(3000);
-//			TakesScreenshot ts=	(TakesScreenshot)driver;
-//			File source =ts.getScreenshotAs(OutputType.FILE);
-//			File destination = new File("C:\\Users\\nbusireddy\\git\\Challenges\\Challenges\\Screenshots\\EC.png");
-//			FileUtils.copyFile(source, destination);
+
 			String dateName = new SimpleDateFormat("dd-MM-YYYY-hhmmss").format(new Date());
 			Screenshot screenshot=new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1500)).takeScreenshot(driver);           
                 ImageIO.write(screenshot.getImage(),"PNG",new File("C:\\\\Users\\\\nbusireddy\\\\git\\\\Challenges\\\\Challenges\\\\Screenshots\\\\EC-"+dateName+".png"));
-			
+		
 			
 			}
 		}
 		
-		
+		driver.quit();
 	}
 
 }

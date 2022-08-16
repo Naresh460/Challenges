@@ -11,11 +11,12 @@ public class StaticBlock {
 	
 	public static void main(String[] args) {
 		System.out.println("Main method");
+		m();
 		
 	}
 	
-	public void m() {
-		System.out.println("Static method"+name);
+	public static void m() {
+		System.out.println("Static method-->"+name);
 	}
 
 }

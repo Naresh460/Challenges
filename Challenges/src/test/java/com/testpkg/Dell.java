@@ -21,10 +21,8 @@ public static void main(String[] args) throws InterruptedException {
 		options.addArguments("headless");
 		WebDriver driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));		
 		
-		
-		//driver.manage().deleteAllCookies();
 		driver.get("https://www.dell.com/en-in");
 		Thread.sleep(3000);
 		List<WebElement> li = driver.findElements(By.xpath("//ul[@aria-label='Products']//li[@class='child-nav']"));
