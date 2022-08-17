@@ -32,13 +32,13 @@ public class TelanaganaRegistarion {
 		driver.get("https://registration.telangana.gov.in");
 		Thread.sleep(3000);
 		String parentwindoww=driver.getWindowHandle();
-		System.out.println(parentwindoww);
+		//System.out.println(parentwindoww);
 		driver.findElement(By.partialLinkText("Encumbrance")).click();		
 		Thread.sleep(3000); 
 		Set<String> childw=driver.getWindowHandles();
 		for (String childd : childw) {
 			if(!parentwindoww.equalsIgnoreCase(childd)) {
-				System.out.println(childw);
+				//System.out.println(childw);
 			driver.switchTo().window(childd);
 			driver.findElement(By.xpath("//div[@class='clearfix']/following-sibling::div/a")).click();
 			//driver.get("https://registration.telangana.gov.in/EncumbranceCertificate/Search_Document.htm");
@@ -62,7 +62,7 @@ public class TelanaganaRegistarion {
 			String dateName = new SimpleDateFormat("dd-MM-YYYY-hhmmss").format(new Date());
 			Screenshot screenshot=new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1500)).takeScreenshot(driver);           
                 ImageIO.write(screenshot.getImage(),"PNG",new File("C:\\\\Users\\\\nbusireddy\\\\git\\\\Challenges\\\\Challenges\\\\Screenshots\\\\EC-"+dateName+".png"));
-		
+		      System.out.println("Screenshot taken");
 			
 			}
 		}
