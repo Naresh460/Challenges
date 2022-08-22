@@ -61,7 +61,7 @@ public class TelanaganaRegistarion {
 
 			String dateName = new SimpleDateFormat("dd-MM-YYYY-hhmmss").format(new Date());
 			Screenshot screenshot=new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1500)).takeScreenshot(driver);           
-                ImageIO.write(screenshot.getImage(),"PNG",new File("C:\\\\Users\\\\nbusireddy\\\\git\\\\Challenges\\\\Challenges\\\\Screenshots\\\\EC-"+dateName+".png"));
+                ImageIO.write(screenshot.getImage(),"PNG",new File(System.getProperty("user.dir")+"\\Screenshots\\EC-"+dateName+".png"));
 		      System.out.println("Screenshot taken");
 			
 			}
