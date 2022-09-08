@@ -3,11 +3,11 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.practice.FramesHandling">
+      <class name="com.naukri.Naukri">
         <methods>
-          <include name="scrrenShot"/>
+          <include name="naukri"/>
         </methods>
-      </class> <!-- com.practice.FramesHandling -->
+      </class> <!-- com.naukri.Naukri -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

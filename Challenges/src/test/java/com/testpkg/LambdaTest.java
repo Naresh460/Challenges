@@ -76,7 +76,7 @@ public class LambdaTest {
 
     @AfterMethod
     public void tearDown() {
-        driver.executeScript("lambda-status=" + Status);
+        //driver.executeScript("lambda-status=" + Status);
         driver.quit();
     }
 
