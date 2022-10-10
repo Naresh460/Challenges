@@ -7,6 +7,7 @@ public class CountofWords {
 	public static void main(String[] args) {
 		String name="The ball is in the court but court is ball";
 		String nameToLower=name.toLowerCase();
+		
 		Map<String, Integer> hashmap= new HashMap<>();
 		
 		String[] words=nameToLower.split(" ");

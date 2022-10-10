@@ -4,6 +4,8 @@ import java.math.*;
 
 public class BigIntegerr {
 	
+	int a=30;
+	
 	public static void main(String[] args) {
 		BigInteger bi = new BigInteger("1236577985245871233333");
 		BigInteger bi2 = new BigInteger("100");

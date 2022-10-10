@@ -1,6 +1,7 @@
 package com.practice;
 
 public class Duplicates {
+	
 	public static void main(String[] args) {
 		String name ="saraswati";
 		  int count;    

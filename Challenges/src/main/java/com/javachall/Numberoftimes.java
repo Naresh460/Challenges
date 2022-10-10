@@ -4,7 +4,8 @@ public class Numberoftimes {
 	public static void main(String[] args) {
 		String stmt= "Naresh is a Good boy is handsom";
 		String word="is";
-		String temp[]= stmt.split("");
+		String[] temp= stmt.split(" ");
+		System.out.println(temp.length);
 		int count =0;
 		for (int i = 0; i < temp.length; i++) {
 			if(word.equals(temp[i]))
@@ -14,8 +15,6 @@ public class Numberoftimes {
 		System.out.println("The word " + word + " occurs " + count + " times in the above string");
 	
 		
-	}
-	
-		
+	}		
 
 }
